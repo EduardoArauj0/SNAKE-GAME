@@ -5,7 +5,7 @@ const size = 30
 
 const snake = [{ x: 270, y: 240}]
 
-const randomNumber = () => {
+const randomNumber = (max, min) => {
     return Math.round(Math.random() * (max - min) + min)
 }
 const randomPosition = () => {
