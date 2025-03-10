@@ -89,6 +89,14 @@ const drawGrid = () => {
 
 }
 
+const chackEat = () => {
+    const head = snake[snake.length - 1]
+
+    if (head.x == food.x && head.y == food.y) {
+        snake.push(head)
+    }
+}
+
 const gameLoop = () => {
     clearInterval(loopId)
     
@@ -98,6 +106,7 @@ const gameLoop = () => {
     drawFood()
     moveSnake()
     drawSnake()
+    chackEat()
     
     loopId = setInterval(() => {
         gameLoop()
