@@ -112,6 +112,21 @@ const chackEat = () => {
     }
 }
 
+const checkColision = () => {
+    const head = snake[snake.length - 1]
+    const canvasLimit = canvas.width - size
+    const neckIndex = snake.length -2
+    const wallCollision = head.x < 0 || head.x > canvasLimit || head.y < 0 || head.y > canvasLimit
+
+    const selfCollision = snake.find((position, index) => {
+        return index < neckIndex && position.x == head.x && position.y == head.y
+    })
+
+    if (wallCollision || selfCollision) {
+        alert('voce perdeu')
+    } 
+}
+
 const gameLoop = () => {
     clearInterval(loopId)
     
@@ -122,6 +137,7 @@ const gameLoop = () => {
     moveSnake()
     drawSnake()
     chackEat()
+    checkColision()
     
     loopId = setInterval(() => {
         gameLoop()
