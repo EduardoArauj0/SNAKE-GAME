@@ -10,7 +10,9 @@ const audio = new Audio ('../assets/audio.mp3')
 
 const size = 30
 
-const snake = [{ x: 270, y: 240}]
+const initialPosition = { x: 270, y: 240}
+
+let snake = [initialPosition]
 
 const incrementScore = () => {
     score.innerText = +score.innerText + 10
@@ -182,4 +184,12 @@ document.addEventListener('keydown', ({key}) => {
     if (key == "ArrowUp" && direction != "d own") {
         direction = 'up'
     }
+})
+
+buttonPlay.addEventListener('click', () => {
+    score.innerText = '00'
+    menu.style.display = 'none'
+    canvas.style.filter = 'none'
+
+    snake = [initialPosition]
 })
