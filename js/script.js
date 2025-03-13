@@ -169,6 +169,8 @@ const gameLoop = () => {
 gameLoop()
 
 document.addEventListener('keydown', ({key}) => {
+    if (menu.style.display === 'flex') return
+    
     if (key == "ArrowRight" && direction != "left") {
         direction = 'right'
     }
